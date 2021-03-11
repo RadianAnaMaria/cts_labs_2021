@@ -16,10 +16,13 @@ public class Produs {
 	    }
 	    else if (tipProdus == TipProdus.DISCOUNT)
 	    {
+	    	
 	      pretFinal = (pretInitial - (0.1f * pretInitial)) - discountFidelitate * (pretInitial - (0.1f * pretInitial));
 	    }
 	    else if (tipProdus == TipProdus.STOC_LIMITAT)
 	    {
+	    	
+
 	      pretFinal = (pretInitial - (0.25f * pretInitial)) - discountFidelitate * (pretInitial - (0.25f * pretInitial));
 	    }
 	    else if (tipProdus == TipProdus.VECHI)
