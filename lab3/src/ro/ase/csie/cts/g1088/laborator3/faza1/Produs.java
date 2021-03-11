@@ -1,27 +1,32 @@
 package ro.ase.csie.cts.g1088.laborator3.faza1;
 
 public class Produs {
-	public float Calculeaza(int t, float s, int perioada)
+	
+	
+	public static final int VECHIME_CLIENT_MAXIMA=10;
+	public static final float DISCOUNT_CLIENT_MAXIM = 0.15f;
+	
+	public float getPretFinal(TipProdus tipProdus, float pretInitial, int vechimeClientInAni)
 	  {
-	    float rezultat = 0;
-	    float valoare = (perioada > 10) ? (float)15/100 : (float)perioada/100; 
-	    if (t == 1)
+	    float pretFinal = 0;
+	    float discountFidelitate = (vechimeClientInAni >  VECHIME_CLIENT_MAXIMA) ? DISCOUNT_CLIENT_MAXIM : (float)vechimeClientInAni/100 ; 
+	    if (tipProdus == TipProdus.NOU)
 	    {
-	      rezultat = s;
+	      pretFinal = pretInitial;
 	    }
-	    else if (t == 2)
+	    else if (tipProdus == TipProdus.DISCOUNT)
 	    {
-	      rezultat = (s - (0.1f * s)) - valoare * (s - (0.1f * s));
+	      pretFinal = (pretInitial - (0.1f * pretInitial)) - discountFidelitate * (pretInitial - (0.1f * pretInitial));
 	    }
-	    else if (t == 3)
+	    else if (tipProdus == TipProdus.STOC_LIMITAT)
 	    {
-	      rezultat = (s - (0.25f * s)) - valoare * (s - (0.25f * s));
+	      pretFinal = (pretInitial - (0.25f * pretInitial)) - discountFidelitate * (pretInitial - (0.25f * pretInitial));
 	    }
-	    else if (t == 4)
+	    else if (tipProdus == TipProdus.VECHI)
 	    {
-	      rezultat = (s - (0.35f * s)) - valoare * (s - (0.35f * s));
+	      pretFinal = (pretInitial - (0.35f * pretInitial)) - discountFidelitate * (pretInitial - (0.35f * pretInitial));
 	    }
-	    return rezultat;
+	    return pretFinal;
 	  }
 
 }
