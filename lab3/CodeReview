@@ -9,3 +9,7 @@ code review
 - numele pachetului nu este ok
 
 - elimina valorile predefinite din functie
+
+2.single responsability si kiss pt functii
+- metoda calculeaza prea multe valori intermediare
+- se repeta o parte din prelucrari
