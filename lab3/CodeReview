@@ -13,3 +13,6 @@ code review
 2.single responsability si kiss pt functii
 - metoda calculeaza prea multe valori intermediare
 - se repeta o parte din prelucrari
+
+3.SOLID
+- eliminare switch prin 
