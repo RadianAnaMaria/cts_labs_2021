@@ -10,6 +10,13 @@ public class Produs {
 	InterfataMarketing serviciuMk = null;
 	InterfataValidare serviciuValidare = null;
 
+	public Produs(InterfataMarketing mk, InterfataValidare validare) {
+		if(mk==null) {
+			throw new NullPointerException();
+		}
+		this.serviciuMk=mk;
+		this.serviciuValidare=validare;
+	}
 	public static float getPretCuDiscount(float pretInitial, float discount) {
 		return pretInitial - (discount * pretInitial);
 	}
@@ -31,4 +38,11 @@ public class Produs {
 
 	    return pretFinal;
 	  }
+
+	public float getPretFinal(TipProdus discount, int i, int j, int k, int l) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 } 
