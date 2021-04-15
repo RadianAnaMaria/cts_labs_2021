@@ -29,6 +29,11 @@ public class Dragon extends SuperErou{
 		this.puncteViata+=puncte;
 		
 	}
+
+	@Override
+	public int getPuncteViata() {
+		return this.erou.puncteViata();
+	}
 	
 
 }
