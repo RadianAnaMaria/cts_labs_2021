@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,6 +19,7 @@ public class TestStudentAlteTeste {
 	static String numeInitial;
 	static int varstaInitiala;
 	static int nrNoteInitiale;
+	static ArrayList<Integer> noteRandom;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -73,5 +75,61 @@ public class TestStudentAlteTeste {
 		for(int i=0;i<student.getNrNote());i++) {
 			noteExistente[i]=student.getNota(i);
 		}
+		
+		
+		@Test void testGetMediePerformance() {
+			ArrayList<Integer>note=new ArrayList<>();
+			int nrNote=(int) 1e6;
+			Random random=new Random();
+			for(int i=0; i<nrNote;i++) {
+				note.add(random.nextInt(Student.MAX_NOTA)+1);
+				
+			}
+			student.setNote(note);
+			long tStart=System.currentTimeMillis();
+			student.getMedie();
+			long tFinal=System.currentTimeMillis();
+			
+			long durata=tFinal-tStart;
+			if(durata<=10) {
+				assertTrue(true);
+				
+			}
+			else {
+				fail("Calculul mediei dureaza mai mult de 10 milisecunde");
+			}
+			
+			}
+		
+		@Test
+		public void testSetVarstaInverse() {
+			int varstaNoua = 22;
+			student.setVarsta(varstaNoua);
+			assertNotEquals("Set nu modifica valoarea atributului", varstaInitiala, student.getVarsta());
+			
+		}
+		
+		@Test
+		public void setGetNotaMinima() {
+			ArrayList<Integer> note=new ArrayList<>();
+			Random random=new Random();
+			note.add(random.nextInt(Student.MAX_NOTA)+1);
+			note.add(random.nextInt(Student.MAX_NOTA)+1);
+			note.add(random.nextInt(Student.MAX_NOTA)+1);
+			
+			student.setNote(note);
+			
+			int notaMinima=student.getNotaMinima();
+			
+			for(int i=0;i<student.getNrNote(),i++) {
+				if(notaMinima> student.getNota(i))
+				{
+					fail("Minimul nu e caluclat corect");}
+				}
+			assertTrue(true);
 
+			
+
+			
+		}
 }
